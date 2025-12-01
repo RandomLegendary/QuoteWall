@@ -25,7 +25,7 @@ const Quotes = ["Friends are like stars, they come and go, but the ones that sta
     "Not all of us can do great things. But we can do small things with great love.",
     "To the well-organized mind, death is but the next great adventure.",
     "All you need is love. But a little chocolate now and then doesn't hurt.”",
-    "“We read to know we're not alone.",
+    "We read to know we're not alone.",
     "",
     "",
     "",
@@ -367,15 +367,64 @@ const Quotes = ["Friends are like stars, they come and go, but the ones that sta
 
 
 const text = document.getElementById('text')
+const idNumber = document.getElementById('idnumber')
+const submitButton = document.getElementById('submit')
+const numberInput = document.getElementById('numberinput')
+const extraQuote = document.getElementById('extra-quote')
+const previousButton = document.getElementById('previous')
+const nextButton = document.getElementById('next')
+const labelInput = document.getElementById('labelinput')
 
 let now = new Date();
 let start = new Date(now.getFullYear(), 0, 0);
 let diff = now - start;
 let oneDay = 1000 * 60 * 60 * 24;
 let day = Math.floor(diff / oneDay);
-console.log('Day of year: ' + day);
+// console.log('Day of year: ' + day);
+
 
 
 if (now.getFullYear() == 2026) {
     text.innerHTML = `${Quotes[day - 1]}`
+    idNumber.innerHTML = `Quote ID: ${day}`
+} else {
+    idNumber.style.display = 'none'
+    submitButton.style.display = 'none'
+    numberInput.style.display = 'none'
+    labelInput.style.display = 'none'
+
+}
+
+let inputId = ''
+
+submitButton.addEventListener('click', submit);
+
+
+previousButton.addEventListener('click', function() {
+    if (numberInput.value > 1) {
+        numberInput.value = `${parseInt(numberInput.value) - 1}`
+        submit()
+    } else {
+        previousButton.style.display = 'none'
+    }
+
+})
+
+nextButton.addEventListener('click', function() {
+    numberInput.value = `${parseInt(numberInput.value) + 1 }`
+    submit()
+})
+
+
+function submit() {
+    inputId =  parseInt(numberInput.value)
+    if (day === inputId){
+        extraQuote.innerHTML = 'You forgot it already? Look above (:'
+    } else if (day >= inputId) {
+        extraQuote.innerHTML = `${Quotes[inputId - 1]}`
+        previousButton.style.display = 'inline-block'
+        nextButton.style.display = 'inline-block'
+    } else {
+        extraQuote.innerHTML = 'Choose a day earlier than today and above zero.'
+    }
 }

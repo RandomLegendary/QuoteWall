@@ -17,15 +17,15 @@ const Quotes = ["Friends are like stars, they come and go, but the ones that sta
     "Anyone who thinks sitting in church can make you a Christian must also think that sitting in a garage can make you a car.",
     "Today you are You, that is truer than true. There is no one alive who is Youer than You.”",
     "If you want your children to be intelligent, read them fairy tales. If you want them to be more intelligent, read them more fairy tales.",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
+    "It is impossible to live without failing at something, unless you live so cautiously that you might as well not have lived at all - in which case, you fail by default.",
+    "Logic will get you from A to Z; imagination will get you everywhere.",
+    "One good thing about music, when it hits you, you feel no pain.",
+    "The more that you read, the more things you will know. The more that you learn, the more places you'll go.",
+    "The truth is, everyone is going to hurt you. You just got to find the ones worth suffering for.",
+    "Not all of us can do great things. But we can do small things with great love.",
+    "To the well-organized mind, death is but the next great adventure.",
+    "All you need is love. But a little chocolate now and then doesn't hurt.”",
+    "“We read to know we're not alone.",
     "",
     "",
     "",
@@ -376,6 +376,6 @@ let day = Math.floor(diff / oneDay);
 console.log('Day of year: ' + day);
 
 
-
-
-text.innerHTML = `${Quotes[day - 1]}`
+if (now.getFullYear() == 2026) {
+    text.innerHTML = `${Quotes[day - 1]}`
+}

@@ -420,7 +420,7 @@ function submit() {
     inputId =  parseInt(numberInput.value)
     if (day === inputId){
         extraQuote.innerHTML = 'You forgot it already? Look above (:'
-    } else if (day >= inputId) {
+    } else if (day >= inputId && inputId > 1) {
         extraQuote.innerHTML = `${Quotes[inputId - 1]}`
         previousButton.style.display = 'inline-block'
         nextButton.style.display = 'inline-block'

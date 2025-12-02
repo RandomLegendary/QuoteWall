@@ -66,11 +66,12 @@ function submit() {
 }
 
 const authorExtra = document.getElementById('author-extra')
-const URL = 'https://api.quotable.io/random'
+const URL = 'https://dummyjson.com/quotes/random'
 
 moreButton.addEventListener('click', async function() {
+
     const response = await fetch(URL)
-    result = await response.json()
+    const result = await response.json()
 
     idNumber.style.display = 'none' 
     submitButton.style.display = 'none'
@@ -81,7 +82,7 @@ moreButton.addEventListener('click', async function() {
     labelInput.style.display = 'none' 
     backButton.style.display = 'block'
 
-    text.innerHTML = `${result.content}`
+    text.innerHTML = `${result.quote}`
     authorExtra.innerHTML = `-- ${result.author}`
     authorExtra.style.display = 'block'
 

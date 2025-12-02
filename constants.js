@@ -29,7 +29,7 @@ export const Quotes = ["Friends are like stars, they come and go, but the ones t
     "",
     "",
     "",
-    "",
+    "Een dag zonder een quote van Aidan is een dag niet geleefd. -- Arne",
     "",
     "",
     "",

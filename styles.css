@@ -94,3 +94,8 @@ button:active::before {
     display: none;
 }
 
+@media (max-width: 600px) {
+    body {
+        font-size: 15px; /* jouw kleinere gsm-grootte */
+    }
+}

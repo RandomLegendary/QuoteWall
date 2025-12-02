@@ -374,6 +374,8 @@ const extraQuote = document.getElementById('extra-quote')
 const previousButton = document.getElementById('previous')
 const nextButton = document.getElementById('next')
 const labelInput = document.getElementById('labelinput')
+const moreButton = document.getElementById('more')
+const backButton = document.getElementById('back')
 
 let now = new Date();
 let start = new Date(now.getFullYear(), 0, 0);
@@ -428,3 +430,43 @@ function submit() {
         extraQuote.innerHTML = 'Choose a day earlier than today and above zero.'
     }
 }
+
+const authorExtra = document.getElementById('author-extra')
+const URL = 'https://api.quotable.io/random'
+
+moreButton.addEventListener('click', async function() {
+    const response = await fetch(URL)
+    result = await response.json()
+
+    idNumber.style.display = 'none' 
+    submitButton.style.display = 'none'
+    numberInput.style.display = 'none' 
+    extraQuote.style.display = 'none' 
+    previousButton.style.display = 'none'
+    nextButton.style.display = 'none' 
+    labelInput.style.display = 'none' 
+    backButton.style.display = 'block'
+
+    text.innerHTML = `${result.content}`
+    authorExtra.innerHTML = `-- ${result.author}`
+    authorExtra.style.display = 'block'
+
+    // console.log(result)
+})
+
+backButton.addEventListener('click', function() {
+    if (now.getFullYear() == 2026) {
+        idNumber.style.display = '' 
+        submitButton.style.display = ''
+        numberInput.style.display = '' 
+        extraQuote.style.display = '' 
+        labelInput.style.display = '' 
+        backButton.style.display = 'none'
+        authorExtra.style.display = 'none'
+        text.innerHTML =  `${Quotes[day - 1]}`
+    } else { 
+        backButton.style.display = 'none'
+        authorExtra.style.display = 'none'
+        text.innerHTML =  "Quotes will be appearing here from January 1, 2026"
+    }
+})

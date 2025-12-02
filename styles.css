@@ -1,11 +1,13 @@
 body {
     background-color: #ffe3e2;
     font-family: Tangerine, serif;
+    font-size: 30px;
+}
+#main {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px;
 }
 
 input {
@@ -74,6 +76,21 @@ button:active::before {
 
 #previous,
 #next {
+    display: none;
+}
+
+#more {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    display: flex;
+}
+
+#back {
+    display: none;
+}
+
+#author-extra {
     display: none;
 }
 

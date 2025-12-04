@@ -14,7 +14,6 @@ const likeButton = document.getElementById('like')
 const likeButtonExtra = document.getElementById('like-extra')
 const menu = document.getElementById('menu')
 const overMenu = document.getElementById('over-menu')
-const clear = document.getElementById('clear')
 
 
 let now = new Date('jan 15 2026');
@@ -24,7 +23,7 @@ let oneDay = 1000 * 60 * 60 * 24;
 let day = Math.floor(diff / oneDay);
 // console.log('Day of year: ' + day);
 
-
+let arrayOfQuotes = []
 
 if (now.getFullYear() == 2026) {
     text.innerHTML = `${Quotes[day - 1]}`
@@ -35,7 +34,6 @@ if (now.getFullYear() == 2026) {
     numberInput.style.display = 'none'
     labelInput.style.display = 'none'
     likeButton.style.display = 'none'
-    clear.style.display = 'none'
     menu.style.display = 'none'
 
 }
@@ -143,6 +141,9 @@ const menuDiv = document.getElementById('menu-div')
 
 menu.addEventListener('click', function() {
 
+    genLikedQuotes()
+    checkIfQuotes()
+    
     if (inMenu == false) {
         text.style.display = 'none'
         idNumber.style.display = 'none' 
@@ -166,10 +167,6 @@ menu.addEventListener('click', function() {
         overMenu.style.display = 'block'
         menuDiv.style.display = 'block'
 
-
-        genLikedQuotes()
-
-
     } else {
         text.style.display = ''
         idNumber.style.display = '' 
@@ -191,18 +188,28 @@ menu.addEventListener('click', function() {
 
 const noQuotes = document.getElementById('no-quotes')
 
-function genLikedQuotes() {
-    let arrayOfQuotes = JSON.parse(localStorage.getItem('favoriteQuotes'))
-    console.log(arrayOfQuotes)
+function checkIfQuotes() {
 
-    if (!arrayOfQuotes) {
+    let saved = JSON.parse(localStorage.getItem('favoriteQuotes')) || []
+
+     if (saved.length === 0) {
         noQuotes.style.display = 'block'
         noQuotes.innerHTML = '<b>No Liked Quotes...</b>'
+        console.log('no')
         return;
     } else {
         noQuotes.style.display = 'block'
         noQuotes.innerHTML = '<b>Click To Remove</b>'
+        console.log(arrayOfQuotes)
+        console.log(arrayOfQuotes.length)
+        console.log('yes')
     }
+}
+
+
+function genLikedQuotes() {
+    arrayOfQuotes = JSON.parse(localStorage.getItem('favoriteQuotes')) || []
+    console.log(arrayOfQuotes)
 
     menuDiv.innerHTML = ''
     arrayOfQuotes.forEach(element => {
@@ -217,23 +224,16 @@ function genLikedQuotes() {
     });
 }
 
-clear.addEventListener('click', function() {
-    localStorage.clear()
-    genLikedQuotes()
-    menuDiv.innerHTML = ''
-})
-
-
 function removeVAlue() {
     this.style.display = 'none'
     let content = this.innerHTML
-
+    favoriteQuotes = JSON.parse(localStorage.getItem("favoriteQuotes")) || []
     const index = favoriteQuotes.indexOf(content);
 
-    const x = favoriteQuotes.splice(index, 1);
+    favoriteQuotes.splice(index, 1);
 
     // console.log(`myArray values: ${favoriteQuotes}`);
-    // console.log(`variable x value: ${x}`);
-
+    
     localStorage.setItem("favoriteQuotes", JSON.stringify(favoriteQuotes))
+    checkIfQuotes();
 }

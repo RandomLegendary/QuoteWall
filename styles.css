@@ -75,7 +75,8 @@ button:active::before {
 }
 
 #previous,
-#next {
+#next,
+#like-extra {
     display: none;
 }
 
@@ -93,6 +94,38 @@ button:active::before {
 #author-extra {
     display: none;
 }
+
+#idnumber {
+    display: inline;
+    margin: 10px;
+}
+
+#menu {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#menu-div {
+    display: none;
+}
+
+#menu-div button {
+    text-transform: none;
+
+}
+
+#no-quotes {
+    display: none;
+    text-align: center;
+}
+
+#clear {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
 
 @media (max-width: 600px) {
     body {

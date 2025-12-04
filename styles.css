@@ -129,6 +129,6 @@ button:active::before {
 
 @media (max-width: 600px) {
     body {
-        font-size: 15px; /* jouw kleinere gsm-grootte */
+        font-size: 15px;
     }
 }

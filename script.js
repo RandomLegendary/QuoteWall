@@ -195,21 +195,17 @@ function checkIfQuotes() {
      if (saved.length === 0) {
         noQuotes.style.display = 'block'
         noQuotes.innerHTML = '<b>No Liked Quotes...</b>'
-        console.log('no')
         return;
     } else {
         noQuotes.style.display = 'block'
         noQuotes.innerHTML = '<b>Click To Remove</b>'
-        console.log(arrayOfQuotes)
-        console.log(arrayOfQuotes.length)
-        console.log('yes')
     }
 }
 
 
 function genLikedQuotes() {
     arrayOfQuotes = JSON.parse(localStorage.getItem('favoriteQuotes')) || []
-    console.log(arrayOfQuotes)
+    // console.log(arrayOfQuotes)
 
     menuDiv.innerHTML = ''
     arrayOfQuotes.forEach(element => {

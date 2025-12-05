@@ -16,7 +16,7 @@ const menu = document.getElementById('menu')
 const overMenu = document.getElementById('over-menu')
 
 
-let now = new Date();
+let now = new Date('jan 20 2026');
 let start = new Date(now.getFullYear(), 0, 0);
 let diff = now - start;
 let oneDay = 1000 * 60 * 60 * 24;
@@ -183,6 +183,8 @@ menu.addEventListener('click', function() {
         overMenu.style.display = 'none'
         menuDiv.style.display = 'none'
 
+
+        text.innerHTML =  `${Quotes[day - 1]}`
     }
 })
 

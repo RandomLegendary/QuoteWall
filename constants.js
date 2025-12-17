@@ -271,7 +271,7 @@ export const Quotes = ["Friends are like stars, they come and go, but the ones t
     "",
     "",
     "",
-    "",
+    "Te is nooit goed, behalve te-vreden! --Oma van Ilona",
     "",
     "",
     "",

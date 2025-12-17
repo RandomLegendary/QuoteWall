@@ -16,7 +16,7 @@ const menu = document.getElementById('menu')
 const overMenu = document.getElementById('over-menu')
 
 
-let now = new Date();
+let now = new Date("2 oct 2026");
 let start = new Date(now.getFullYear(), 0, 0);
 let diff = now - start;
 let oneDay = 1000 * 60 * 60 * 24;

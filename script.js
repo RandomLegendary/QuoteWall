@@ -213,7 +213,7 @@ function genLikedQuotes() {
     arrayOfQuotes.forEach(element => {
         let el = document.createElement('button')
         el.innerHTML = `${element}`
-        el.addEventListener('click', removeVAlue)
+        el.addEventListener('click', removeValue)
         menuDiv.style.textAlign = 'center'
         menuDiv.style.padding = '20px'
         menuDiv.style.margin = '20px'
@@ -222,7 +222,7 @@ function genLikedQuotes() {
     });
 }
 
-function removeVAlue() {
+function removeValue() {
     this.style.display = 'none'
     let content = this.innerHTML
     favoriteQuotes = JSON.parse(localStorage.getItem("favoriteQuotes")) || []
